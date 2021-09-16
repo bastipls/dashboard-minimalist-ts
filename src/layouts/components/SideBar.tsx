@@ -1,13 +1,20 @@
-import { faAd, faCaretDown, faSignOutAlt, faSmile } from '@fortawesome/free-solid-svg-icons'
+import { faAd, faBars, faSignOutAlt, faSmile } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { useRef } from 'react'
 import { Link } from 'react-router-dom'
 import profileImg from '../../assets/img/profile.jpg'
 import { DropDownMenuItem } from './DropDownMenuItem'
 
+//38 MIN
+//https://www.youtube.com/watch?v=ES8vJcUqE7s
 export const SideBar = () => {
-    
+    const ref = useRef<HTMLDivElement | null> (null)
+    const handleCloseSideBar  = ( ) => {
+        ref.current?.classList.toggle("sidebar__close")
+    }
     return (
-        <div className="sidebar sidebar__close">
+        <>
+        <div ref={ref}  className="sidebar">
             <div className="sidebar__logo-details">
                 <FontAwesomeIcon  icon={faAd} /> 
                 <span className="sidebar__logo-name">
@@ -30,26 +37,8 @@ export const SideBar = () => {
                 </li>
                 <DropDownMenuItem  title="Categoria2" />
                 <DropDownMenuItem  title="Categoria3" />
-                <li>
-                    <div className="sidebar__icon-link">
-                        <Link to="#" >
-                            <FontAwesomeIcon  icon={faSmile} />
-                            <span className="sidebar__link-name">Categoria</span>
-                        </Link>
-                        <FontAwesomeIcon className="sidebar__arrow" icon={faCaretDown} />
-                    </div>
-                    <ul className="sidebar__sub-menu">
-                        <li>
-                            <Link className="sidebar__link-name" to="#">HTML CSS</Link>
-                        </li>
-                        <li>
-                            <Link to="#">JS</Link>
-                        </li>
-                        <li>
-                            <Link to="#">Login Form</Link>
-                        </li>
-                    </ul>
-                </li>
+                <DropDownMenuItem  title="Categoria4" />
+                <DropDownMenuItem  title="Categoria5" />   
                 <li>
                     <div className="sidebar__profile-details">
                         <div className="sidebar__porfile-content">
@@ -64,6 +53,13 @@ export const SideBar = () => {
                 </li>
             </ul>
         </div>
+        <section className="sidebar__home-section">
+            <div className="sidebar__home-content">
+                <FontAwesomeIcon onClick={handleCloseSideBar} className="sidebar__bx-menu" icon={faBars} />
+                <span className="sidebar__text">Drop Down Sidebaer</span>
+            </div>
+        </section>
+        </>
     )
     
 }
