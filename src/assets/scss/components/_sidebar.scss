@@ -1,11 +1,11 @@
 /* Google Fonts Import Link */
 // @import "https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap";
-* {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
-	font-family: 'Poppins', sans-serif;
-}
+// * {
+// 	margin: 0;
+// 	padding: 0;
+// 	box-sizing: border-box;
+// 	font-family: 'Poppins', sans-serif;
+// }
 .sidebar {
 	position: fixed;
 	top: 0;
@@ -57,8 +57,11 @@
 			&:hover {
 				background: #1d1b31;
 				.sidebar__sub-menu.sidebar__blank {
+                    height: 50px;
 					top: 50%;
-					transform: translateY(-50%);
+                    // FIXME: ver por que eesta en 50%
+					transform: translateY(0%);
+
 				}
 			}
 			.sidebar__icon-link {
@@ -89,6 +92,8 @@
 				text-decoration: none;
 				.sidebar__link-name {
 					font-size: 18px;
+                    height: 50px;
+                    line-height: 50px;
 					font-weight: 400;
 					color: #fff;
 					transition: all 0.4s ease;
@@ -169,6 +174,7 @@
 		}
 	}
 }
+// CUANDO EL SIDEBAR ESTA COLAPSADO/CERRADO
 .sidebar.sidebar__close {
 	width: 78px;
 	.sidebar__logo-details {
@@ -244,9 +250,11 @@
 	}
 }
 .sidebar__home-section {
-	position: relative;
+	position: fixed;
 	background: #E4E9F7;
-	height: 100vh;
+    // background:cyan;
+    
+	height: 55px;
 	left: 260px;
 	width: calc(100% - 260px);
 	transition: all 0.5s ease;
@@ -269,13 +277,13 @@
 	}
 }
 @media (max-width: 420px) {
-	.sidebar.sidebar__close {
-		.sidebar__nav-links {
-			li {
-				.sidebar__sub-menu {
-					display: none;
-				}
-			}
-		}
-	}
+	// .sidebar.sidebar__close {
+	// 	.sidebar__nav-links {
+	// 		li {
+	// 			.sidebar__sub-menu {
+	// 				display: none;
+	// 			}
+	// 		}
+	// 	}
+	// }
 }

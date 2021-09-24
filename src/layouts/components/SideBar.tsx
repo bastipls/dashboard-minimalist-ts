@@ -56,7 +56,7 @@ export const SideBar = () => {
         <section className="sidebar__home-section">
             <div className="sidebar__home-content">
                 <FontAwesomeIcon onClick={handleCloseSideBar} className="sidebar__bx-menu" icon={faBars} />
-                <span className="sidebar__text">Drop Down Sidebaer</span>
+                <span className="sidebar__text">Drop</span>
             </div>
         </section>
         </>
