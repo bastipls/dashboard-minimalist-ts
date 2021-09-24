@@ -1,0 +1,295 @@
+
+.sidebar{
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 260px;
+    background: var(--main-color);
+    z-index: 100;
+    transition: all 0.5s ease;
+    
+  
+    .sidebar__logo-details{
+        height: 60px;
+        width: 100%;
+        display: flex;
+        align-items: center;     
+
+        
+        svg{
+            color: var(--secondry-color);
+            font-size: 30px;
+            height: 50px;
+            min-width: 78px;
+            text-align: center;
+            line-height: 50px;
+        }
+        .sidebar__logo-name{
+            font-size: 22px;
+            color: var(--secondry-color);
+            font-weight: 600;
+            transition: opacity 0.3s ease;
+            transition-delay: 0.1s;
+        }
+    }
+
+    .sidebar__nav-links{
+        
+        height: 100%;
+        padding-top: 30px 0 150px 0;
+        overflow: auto;
+        &::-webkit-scrollbar{
+            display: none;
+        }
+        // Mostrar | ocultar menu
+        li.sidebar__show-menu .sidebar__sub-menu{
+            display: block;
+        }
+        // Girar icono arrow al hacer click
+        li.sidebar__show-menu  svg.sidebar__arrow {
+            transform: rotate(-180deg);
+            
+        }
+        li{
+            position: relative;
+            list-style: none;
+            transition:all 0.4s ease;
+            padding: 10px 0px 10px 0px;
+            &:hover{
+                
+                background: var(--priamry-color);
+            }
+            .sidebar__icon-link{
+                
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                
+            
+            }
+
+            .sidebar__sub-menu{
+                padding: 6px 6px 14px 80px;
+                margin-top:0px;
+                background: var(--priamry-color);  
+                display: none;
+                li{
+                    padding: 0px;
+                }
+            
+                a{
+                    color: var(--secondry-color);
+                    font-size: 15px;
+                    padding: 5px 0px;
+                    white-space: nowrap;
+                    opacity: 0.6;
+                    transition: opacity 0.3s ease;
+                    &:hover{
+                        opacity: 1;
+                    }
+                }
+
+            }
+            
+            svg{
+                min-width: 78px;
+                text-align: center;
+                line-height: 50px;
+                color:var(--secondry-color);
+                cursor: pointer;
+                transition: all 0.3s ease ;
+            }
+            
+            a{
+                text-decoration: none;
+                display: flex;
+                align-items: center;
+                
+                .sidebar__link-name{
+                    font-size:18px ;
+                    font-weight: 400;
+                    color: var(--secondry-color);
+                    transition: all .4s ease;
+                    // transition-delay: 0.1s;
+                }
+            }
+        }
+    }
+    .sidebar__profile-details {
+        position: fixed;
+        bottom: 0;
+        display: flex;
+        align-items: center;
+        width: 260px;
+        justify-content: space-between;
+        background:var(--priamry-color) ;
+        padding: 6px 0px;
+        transition: width 0.5s ease;
+        overflow-x: hidden;
+        .sidebar__profile-content{
+            display: flex;
+            align-items: center;
+        }
+        .sidebar__profile-name, .sidebar__profile-job{
+            color:#fff;
+            font-size: 18px;
+            font-weight: 500;
+            white-space: nowrap;
+        }
+        .sidebar__profile-job{
+            font-size: 12px;
+        }
+        img{
+            width: 52px;
+            height: 52px;
+            object-fit: cover;
+            border-radius: 16px;
+            margin: 0 14px 0px 14px;
+            background: var(--priamry-color);
+            transition: all 0.5s ease;
+
+
+        }
+        #sidebar__icon-exit{
+            width: 5px !important;
+            height:20px !important;
+            line-height: normal !important;
+            min-width: 50px ;
+            cursor: pointer;
+        }
+    }
+}
+// SECCION navbar
+.sidebar__home-section{
+    position: relative;
+    background: #E4E9F7;
+    height: 100vh;
+    left: 260px;
+    width: calc(100% - 260px);
+    transition: all 0.5s ease;
+    .sidebar__home-content{
+        height: 60px;
+        display: flex;
+        align-items: center;    
+        .sidebar__bx-menu{
+            margin:  0 15px;
+            cursor: pointer;
+        }
+        .sidebar__bx-menu, .sidebar__text{
+            color: #11101D;
+            font-size:30px;
+            
+        }
+        .sidebar__text{
+            font-size: 26px;
+            font-weight: 600;
+        }
+
+    }
+
+}
+
+
+// EXPANDIR/OCULTAR SIDEBAR
+// El desencadenante de realizar los cambios a continuacion
+// es el toggle de la clase sidebar__close que se le añade a sidebar
+
+// SECCION SUBMENUS
+// Cuando el sidebar esta cerrado
+// El menu sale hacia el lado derecho
+.sidebar.sidebar__close .sidebar__nav-links li .sidebar__sub-menu{
+    position: absolute;
+    left: 100%;
+    margin-top: 0;
+    top:-10px;
+    padding: 10px 20px;
+    border-radius: 0 6px 6px 0;
+    
+    opacity: 0;
+    display: block;
+    pointer-events: none;
+    transition: 0s;
+
+}
+.sidebar.sidebar__close .sidebar__nav-links li .sidebar__icon-link{
+    display: block;
+}
+
+.sidebar.sidebar__close .sidebar__nav-links li:hover .sidebar__sub-menu{
+    top:0;
+    opacity: 1;
+    pointer-events: auto;
+    transition: top 0.4s ease;
+}
+
+// Cuando esta cerrado 
+
+
+.sidebar .sidebar__nav-links li .sidebar__sub-menu.sidebar__blank{
+    opacity: 1;
+    pointer-events: auto;
+    padding:3px 50px 6px 16px;
+    opacity: 0;
+    pointer-events: none;
+    
+}
+.sidebar.sidebar__close .sidebar__nav-links{
+    overflow: visible;
+}
+.sidebar .sidebar__nav-links li:hover .sidebar__sub-menu.sidebar__blank{
+    top: 50%;
+    // pointer-events: auto;
+    transform:translateY(-50%);
+}
+
+.sidebar .sidebar__nav-links li .sidebar__sub-menu.sidebar__link-name{
+    display: none;
+}
+// Cuando el sidebar esta cerrado
+.sidebar.sidebar__close .sidebar__nav-links li .sidebar__sub-menu .sidebar__link-name{
+    font-size: 18px;
+    opacity: 1;
+    display: block;
+    transition: all .3s ease;
+}
+// SECCION PROFILE DETAIL
+.sidebar.sidebar__close .sidebar__profile-details{
+    width: 78px;
+    background: none;
+}
+.sidebar.sidebar__close .sidebar__profile-details svg,
+.sidebar.sidebar__close .sidebar__profile-details .sidebar__profile-name,
+.sidebar.sidebar__close .sidebar__profile-details .sidebar__profile-job{
+    display: none;
+}
+.sidebar.sidebar__close .sidebar__profile-details img{
+    padding: 10px;
+}
+
+
+.sidebar.sidebar__close .sidebar__nav-links li a .sidebar__link-name{
+    opacity: 0;
+    pointer-events: none;
+}
+.sidebar.sidebar__close .sidebar__nav-links svg.sidebar__arrow{
+    display: none;
+    
+}
+.sidebar.sidebar__close ~ .sidebar__home-section{
+    left: 78px;
+    width: calc(100% - 78px);
+   
+}
+.sidebar.sidebar__close{
+    width: 78px;
+}
+.sidebar.sidebar__close .sidebar__logo-details .sidebar__logo-name{
+    opacity: 0;
+    pointer-events: none;
+    transition-delay: 0s;
+}
+.sidebar.sidebar.sidebar__close .sidebar__nav-links 
+li .sidebar__sub-menu .sidebar__sub-menu.sidebar__link-name{
+    display: none;
+}
