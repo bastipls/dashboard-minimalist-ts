@@ -1,20 +1,21 @@
-import { faAd, faBars, faSignOutAlt, faSmile } from '@fortawesome/free-solid-svg-icons'
+import { faAd, faBars, faSignOutAlt } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { useRef } from 'react'
-import { Link } from 'react-router-dom'
-import profileImg from '../../assets/img/profile.jpg'
+import profileImg from '../../../assets/img/profile.jpg'
 import { DropDownMenuItem } from './DropDownMenuItem'
+import { MenuItem } from './MenuItem'
+import { routesAdmin } from '../../../routers/routes';
 
 //38 MIN
 //https://www.youtube.com/watch?v=ES8vJcUqE7s
 export const SideBar = () => {
     const ref = useRef<HTMLDivElement | null> (null)
-    const handleCloseSideBar  = ( ) => {
+    const handleCloseSideBar = ( ) => {
         ref.current?.classList.toggle("sidebar__close")
     }
     return (
         <>
-        <div ref={ref}  className="sidebar">
+        <div ref={ref}  className="sidebar sidebar__close">
             <div className="sidebar__logo-details">
                 <FontAwesomeIcon  icon={faAd} /> 
                 <span className="sidebar__logo-name">
@@ -22,23 +23,24 @@ export const SideBar = () => {
                 </span>
             </div>
             <ul className="sidebar__nav-links">
-                <li>
-                    <Link to="#" >
-                        <FontAwesomeIcon icon={faSmile} />
-                        <span className="sidebar__link-name">Categoria1</span>
-                    </Link>
-                    <ul className="sidebar__sub-menu sidebar__blank">
-                        <li>
-                            <Link className="sidebar__link-name" to="#" >
-                                Categoria1
-                            </Link>
-                        </li>
-                    </ul>
-                </li>
-                <DropDownMenuItem  title="Categoria2" />
-                <DropDownMenuItem  title="Categoria3" />
-                <DropDownMenuItem  title="Categoria4" />
-                <DropDownMenuItem  title="Categoria5" />   
+            {
+                routesAdmin.map(route => {
+                    if(route.isMenuItem){
+                        if(route.isMenuItem){
+                            return ( 
+                                <MenuItem {...route} /> 
+                            )
+                        }else{
+                            return (
+                                <DropDownMenuItem {...route} />
+                            )
+                        }
+
+                    }
+                    return null
+                })
+            }
+            
                 <li>
                     <div className="sidebar__profile-details">
                         <div className="sidebar__porfile-content">

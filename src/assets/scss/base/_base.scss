@@ -5,3 +5,31 @@
     padding: 0;
     box-sizing: border-box;
 }
+.active{
+    color:var(--main-company-color) !important;
+  
+    span{
+
+        color: var(--main-company-color) !important;
+    }
+}
+// .sidebar.sidebar__close .active {
+//     color:var(--secondry-color);
+//     svg{
+//         color:var(--main-company-color); 
+//     }
+//     span{
+
+//         color: var(--secondry-color) ;
+//     }
+// }
+// .active.sidebar__close{
+//     color:var(--secondry-color);
+//     svg{
+//         color:red !important; 
+//     }
+//     span{
+
+//         color: var(--secondry-color) ;
+//     }
+// }
