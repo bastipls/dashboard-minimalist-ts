@@ -19,21 +19,22 @@
 		height: 60px;
 		width: 100%;
 		display: flex;
+	
 		align-items: center;
-		svg {
+		.sidebar__logo-img {
             color: var(--secondry-color);
             font-size: 30px;
-            height: 50px;
+			width: 60px;
+            height: 40px;
             min-width: 78px;
             text-align: center;
             line-height: 50px;
+			img{
+				max-width: 100%;
+				max-height: 100%;
 
-			// font-size: 30px;
-			// color: #fff;
-			// height: 50px;
-			// min-width: 78px;
-			// text-align: center;
-			// line-height: 50px;
+			}
+
 		}
 		.sidebar__logo-name{
 			font-size: 22px;
@@ -76,15 +77,6 @@
                 color:var(--secondry-color);
                 cursor: pointer;
                 transition: all 0.3s ease ;
-
-				// height: 50px;
-				// min-width: 78px;
-				// text-align: center;
-				// line-height: 50px;
-				// color: #fff;
-				// font-size: 20px;
-				// cursor: pointer;
-				// transition: all 0.3s ease;
 			}
 			a {
 				display: flex;
@@ -133,9 +125,11 @@
 			}
 			.sidebar__sub-menu {
 				display: block;
+				
 			}
 		}
 	}
+
 	.sidebar__profile-details {
 		position: fixed;
 		bottom: 0;
@@ -146,8 +140,11 @@
 		background: #1d1b31;
 		padding: 12px 0;
 		transition: all 0.5s ease;
+		overflow-x: hidden;
+		
 		.sidebar__profile-content {
 			display: flex;
+			
 			align-items: center;
 		}
 		img {
@@ -164,6 +161,8 @@
 			font-size: 18px;
 			font-weight: 500;
 			white-space: nowrap;
+		
+			
 		}
 		.sidebar__profile-job {
 			color: #fff;
@@ -177,6 +176,7 @@
 // CUANDO EL SIDEBAR ESTA COLAPSADO/CERRADO
 .sidebar.sidebar__close {
 	width: 78px;
+	
 	.sidebar__logo-details {
 		.sidebar__logo-name{
 			transition-delay: 0s;
@@ -212,6 +212,7 @@
 					opacity: 1;
 					display: block;
 				}
+				
 			}
 			&:hover {
 				.sidebar__sub-menu {
@@ -229,10 +230,12 @@
 	.sidebar__profile-details {
 		background: none;
 		width: 78px;
+		
 		img {
 			padding: 10px;
 		}
 		svg {
+	
 			display: none;
 		}
 		.sidebar__profile-name {
@@ -246,6 +249,12 @@
 		.sidebar__home-section {
 			left: 78px;
 			width: calc(100% - 78px);
+		}
+	}
+	~ {
+		.wrapper {
+			// left: 78px;
+			// width: calc(100% - 78px);
 		}
 	}
 }
@@ -262,6 +271,7 @@
 		height: 60px;
 		display: flex;
 		align-items: center;
+		
 		.sidebar__bx-menu {
 			color: #11101d;
 			font-size: 35px;
@@ -269,6 +279,7 @@
 			cursor: pointer;
 		}
 		.sidebar__text {
+			
 			color: #11101d;
 			font-size: 35px;
 			font-size: 26px;

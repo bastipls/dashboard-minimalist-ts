@@ -5,6 +5,8 @@ import profileImg from '../../../assets/img/profile.jpg'
 import { DropDownMenuItem } from './DropDownMenuItem'
 import { MenuItem } from './MenuItem'
 import { routesAdmin } from '../../../routers/routes';
+import logo from '../../../assets/img/logo.png'
+import { useLocation } from 'react-router-dom'
 
 //38 MIN
 //https://www.youtube.com/watch?v=ES8vJcUqE7s
@@ -13,26 +15,29 @@ export const SideBar = () => {
     const handleCloseSideBar = ( ) => {
         ref.current?.classList.toggle("sidebar__close")
     }
+    const location = useLocation()
     return (
         <>
         <div ref={ref}  className="sidebar sidebar__close">
             <div className="sidebar__logo-details">
-                <FontAwesomeIcon  icon={faAd} /> 
+                <div className="sidebar__logo-img">
+                    <img src={logo} alt="Logo Apiux" />
+                </div>
                 <span className="sidebar__logo-name">
-                    Dashboard
+                    DOCUX
                 </span>
             </div>
             <ul className="sidebar__nav-links">
             {
-                routesAdmin.map(route => {
+                routesAdmin.map((route,key) => {
                     if(route.isMenuItem){
-                        if(route.isMenuItem){
+                        if(!route.isSubMenu){
                             return ( 
-                                <MenuItem {...route} /> 
+                                <MenuItem key={key} {...route} /> 
                             )
                         }else{
                             return (
-                                <DropDownMenuItem {...route} />
+                                <DropDownMenuItem location={location} key={key} {...route} />
                             )
                         }
 
@@ -58,7 +63,7 @@ export const SideBar = () => {
         <section className="sidebar__home-section">
             <div className="sidebar__home-content">
                 <FontAwesomeIcon onClick={handleCloseSideBar} className="sidebar__bx-menu" icon={faBars} />
-                <span className="sidebar__text">Drop</span>
+                <span className="sidebar__text"></span>
             </div>
         </section>
         </>

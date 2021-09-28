@@ -1,12 +1,18 @@
 .wrapper{
     padding: 10px;
     overflow-x: hidden;
-    margin-left: 78px;
     padding-top: 80px;
     height: 100vh;
+    word-break: break-all;
+    margin-left: 78px;
     // background: var(--second-bg-color);
     background:#E4E9F7;
-    transition: margin-left .5s;
+    // position: fixed;
+    // width: calc(100% - 260px);
+    // left: 260px;
+    // z-index: -1;
+    // // transition: margin-left,left,width.5s;
+    // transition: all 0.5s ease;
     &::-webkit-scrollbar{
 		width: 9px;
 		height: 9px;
@@ -18,15 +24,20 @@
 		border: 1px solid var(--main-bg-color);
 	  }
 }
-
-
-// @media only screen and (max-width: 600px) {
-
-//     .wrapper {
-//         margin-left: 0;
-//     }
-//     .sidebar__expand .wrapper {
-//         margin-left: 0;
-//     }
-
+// .sidebar.sidebar__close {
+//   .wrapper{
+//     width: 100% !important;
+//     margin-left:0px !important;
+//     background: red !important;
+//   }
 // }
+@media only screen and (max-width: 600px) {
+
+    .wrapper {
+        margin-left: 78px;
+    }
+    .sidebar__expand .wrapper {
+        margin-left: 0;
+    }
+
+}

@@ -24,7 +24,7 @@ export const RoutesView = ({routes,user}:IPropsRoutesView) => {
                 <Route 
                     path={layout + path!}
                     exact
-                    render={(props) => <Component {...props} />}
+                    render={(props) => Component ? <Component {...props} /> : null}
                     key={key}
                 />
             :

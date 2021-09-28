@@ -1,4 +1,4 @@
-import { IUserGroup } from '../interfaces/IUser';
+import { IUserGroup } from "../interfaces/IUser";
 
 
 export const checkValuesInList  = (user_gp:IUserGroup[],route_gp:string[]) => {
