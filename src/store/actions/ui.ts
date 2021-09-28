@@ -1,5 +1,4 @@
-
-import { ActionTypeUi } from '../action-types/index';
+import { ActionTypeUi } from "../action-types"
 
 
 

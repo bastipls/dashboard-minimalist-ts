@@ -8,10 +8,9 @@ export interface UiState {
 const initialState:UiState = {
     loading:false,
 }
-
-
-const uiReducer = (state:UiState=initialState,action:ActionsUi) => {
-   switch (action.type) {
+// TODO: cambiar las action ui por load user
+const authReducer = (state:UiState=initialState,action:ActionsUi) => {
+    switch (action.type) {
         case ActionTypeUi.START_LOADING:
             return {
                 ...state,
@@ -27,6 +26,6 @@ const uiReducer = (state:UiState=initialState,action:ActionsUi) => {
 
         default:
             return state;
-   }
+    }
 }
-export default uiReducer;
+export default authReducer;
