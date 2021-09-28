@@ -1,18 +1,19 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { Link, NavLink } from 'react-router-dom'
-import { RoutesAdmin, SubMenuRoute } from '../../../routers/routes';
+import { RoutesAdmin } from '../../../routers/routes';
 import { Location } from "history";
 interface PropsSubMenuItem extends RoutesAdmin{
     location:Location
 }
 export const SubMenuItem = React.memo((props:PropsSubMenuItem) => {
-    const pathNames = props.subMenus?.map( submenu => submenu.fullpath)
-    useEffect(() => {
-        console.log("Me renderizo", pathNames?.includes(props.location.pathname))
-        // console.log("PROPS ",props.subMenus)
+    // TODO: verificar si es necesario usarlo
+    // const pathNames = props.subMenus?.map( submenu => submenu.fullpath)
+    // useEffect(() => {
+    //     console.log("Me renderizo", pathNames?.includes(props.location.pathname))
+    //     // console.log("PROPS ",props.subMenus)
        
         
-    }, [props.location.pathname,pathNames])
+    // }, [props.location.pathname,pathNames])
     return (
         <ul  className="sidebar__sub-menu ">
                 <li>

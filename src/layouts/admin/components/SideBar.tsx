@@ -1,4 +1,4 @@
-import { faAd, faBars, faSignOutAlt } from '@fortawesome/free-solid-svg-icons'
+import {  faBars, faSignOutAlt } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { useRef } from 'react'
 import profileImg from '../../../assets/img/profile.jpg'
