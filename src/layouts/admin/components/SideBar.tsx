@@ -1,12 +1,14 @@
 import {  faBars, faSignOutAlt } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { useRef } from 'react'
+import { useCallback, useRef } from 'react'
 import profileImg from '../../../assets/img/profile.jpg'
 import { DropDownMenuItem } from './DropDownMenuItem'
 import { MenuItem } from './MenuItem'
 import { routesAdmin } from '../../../routers/routes';
 import logo from '../../../assets/img/logo.png'
 import { useLocation } from 'react-router-dom'
+import keycloak from '../../../keycloak';
+import { useKeycloak } from '@react-keycloak/web';
 
 //38 MIN
 //https://www.youtube.com/watch?v=ES8vJcUqE7s
@@ -16,6 +18,11 @@ export const SideBar = () => {
         ref.current?.classList.toggle("sidebar__close")
     }
     const location = useLocation()
+    const { keycloak } = useKeycloak()
+    const logout = useCallback(() => {
+        keycloak?.logout()
+        
+      }, [keycloak])
     return (
         <>
         <div ref={ref}  className="sidebar sidebar__close">
@@ -55,7 +62,7 @@ export const SideBar = () => {
                             <div className="sidebar__profile-name">Bastian Pérez</div>
                             <div className="sidebar__profile-job">Dev. Front-End</div>
                         </div>
-                        <FontAwesomeIcon id="sidebar__icon-exit"  icon={faSignOutAlt}/>
+                        <FontAwesomeIcon onClick={logout} id="sidebar__icon-exit"  icon={faSignOutAlt}/>
                     </div>
                 </li>
             </ul>

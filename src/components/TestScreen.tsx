@@ -1,8 +1,8 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { actionCreators } from '../store';
-import { RootState } from '../store/reducers/index';
-import { UiState } from '../store/reducers/uiReducer';
+import { actionCreators } from '../state';
+import { RootState } from '../state/reducers/index';
+import { UiState } from '../state/reducers/uiReducer';
 
 
 export const TestScreen = () => {

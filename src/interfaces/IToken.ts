@@ -1,4 +1,4 @@
-export interface Token {
+export interface IToken {
     exp:           number;
     iat:           number;
     auth_time:     number;
@@ -10,15 +10,15 @@ export interface Token {
     nonce:         string;
     session_state: string;
     acr:           string;
-    realm_access:  RealmAccess;
     scope:         string;
-    user:          User;
-    authorities:   string[];
+    realm_access?:  IRealmAccess;
+    user?:          IUser;
+    authorities?:   string[];
   }
-  export interface RealmAccess {
+  export interface IRealmAccess {
     roles: string[];
   }
-  export interface User {
+  export interface IUser {
     lastName:     string;
     firstName:    string;
     groups:       string[];

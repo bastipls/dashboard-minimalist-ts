@@ -6,6 +6,7 @@ export const LoginLayout = () => {
     const { keycloak } = useKeycloak()
     const login = useCallback(() => {
         keycloak?.login()
+        
       }, [keycloak])
     return (
         <div>
