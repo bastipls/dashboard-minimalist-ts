@@ -17,7 +17,12 @@ const authReducer = (state:IAuthState=initialState,action:ActionsAuth) => {
                 ...state, 
                 tokenInfo:action.payload
             }
-
+        case ActionTypeAuth.LOGOUT:
+            return {
+                ...state,
+                tokenInfo:null
+            }
+        
         default:
             return state;
     }

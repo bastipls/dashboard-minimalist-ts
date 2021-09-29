@@ -16,9 +16,9 @@ export const AppRouter = () => {
     const access = KeyCloakService.getToken()
     const dispatch= useDispatch()
     useEffect(() => {
-        dispatch(loadTokenUser(KeyCloakService.getAllInfo()))
-     
-    }, [dispatch])
+        dispatch(loadTokenUser(access? access : ''))
+    }, [dispatch,access])
+    
     return (
         <BrowserRouter>
             <div>

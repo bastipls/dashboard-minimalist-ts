@@ -1,6 +1,4 @@
-import Keycloak, { KeycloakTokenParsed } from "keycloak-js";
-import { IToken } from './interfaces/IToken';
-
+import Keycloak from "keycloak-js";
 const _kc = Keycloak('/keycloak.json')
 
 /**
@@ -25,7 +23,8 @@ const doLogin = _kc.login;
 const doLogout = _kc.logout;
 
 const getToken = () => _kc.token;
-const getAllInfo = ():KeycloakTokenParsed | IToken | undefined => _kc.tokenParsed;
+
+// const getAllInfo =jwt_decode<IToken>(token as string);
 const isLoggedIn = () => !!_kc.token;
 
 const updateToken = (successCallback:any) =>
@@ -41,7 +40,7 @@ const KeyCloakService = {
     initKeycloak,
     doLogin,
     doLogout,
-    getAllInfo,
+    // getAllInfo,
     isLoggedIn,
     getToken,
     updateToken,

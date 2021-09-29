@@ -1,7 +1,7 @@
 import {  faBars, faSignOutAlt } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {  useRef } from 'react'
-import profileImg from '../../../assets/img/profile.jpg'
+import profileImg from '../../../assets/img/profile.png'
 import { DropDownMenuItem } from './DropDownMenuItem'
 import { MenuItem } from './MenuItem'
 import { routesAdmin } from '../../../routers/routes';
