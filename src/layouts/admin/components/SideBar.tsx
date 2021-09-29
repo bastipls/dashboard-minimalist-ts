@@ -1,28 +1,28 @@
 import {  faBars, faSignOutAlt } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { useCallback, useRef } from 'react'
+import {  useRef } from 'react'
 import profileImg from '../../../assets/img/profile.jpg'
 import { DropDownMenuItem } from './DropDownMenuItem'
 import { MenuItem } from './MenuItem'
 import { routesAdmin } from '../../../routers/routes';
 import logo from '../../../assets/img/logo.png'
 import { useLocation } from 'react-router-dom'
-import keycloak from '../../../keycloak';
-import { useKeycloak } from '@react-keycloak/web';
+import KeyCloakService from '../../../keycloak';
+import { useSelector } from 'react-redux';
+import { IAuthState } from '../../../state/reducers/authReducer';
+import { RootState } from '../../../state/reducers/index';
 
 //38 MIN
 //https://www.youtube.com/watch?v=ES8vJcUqE7s
 export const SideBar = () => {
     const ref = useRef<HTMLDivElement | null> (null)
+    const {tokenInfo}:IAuthState = useSelector((state:RootState) => state.auth)
+    
     const handleCloseSideBar = ( ) => {
         ref.current?.classList.toggle("sidebar__close")
     }
     const location = useLocation()
-    const { keycloak } = useKeycloak()
-    const logout = useCallback(() => {
-        keycloak?.logout()
-        
-      }, [keycloak])
+
     return (
         <>
         <div ref={ref}  className="sidebar sidebar__close">
@@ -59,10 +59,10 @@ export const SideBar = () => {
                             <img src={profileImg} alt="" />
                         </div>
                         <div className="sidebar__name-job">
-                            <div className="sidebar__profile-name">Bastian Pérez</div>
-                            <div className="sidebar__profile-job">Dev. Front-End</div>
+                            <div className="sidebar__profile-name">{tokenInfo?.user?.firstName} {tokenInfo?.user?.lastName}</div>
+                            <div className="sidebar__profile-job">{tokenInfo?.user?.email}</div>
                         </div>
-                        <FontAwesomeIcon onClick={logout} id="sidebar__icon-exit"  icon={faSignOutAlt}/>
+                        <FontAwesomeIcon onClick={() => KeyCloakService.doLogout()} id="sidebar__icon-exit"  icon={faSignOutAlt}/>
                     </div>
                 </li>
             </ul>

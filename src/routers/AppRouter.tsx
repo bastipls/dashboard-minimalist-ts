@@ -5,25 +5,20 @@ import { LoginLayout } from '../layouts/login/LoginLayout'
 import { PrivateRoute } from './PrivateRoute';
 import { PublicRoute } from './PublicRoute';
 import { Redirect } from 'react-router';
-import { useKeycloak } from '@react-keycloak/web';
+
+import KeyCloakService from '../keycloak';
 import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { loadTokenUser } from '../state/actions/auth';
 
 
 export const AppRouter = () => {
-    // FIXME: Haacer ruta esto esta sin terminar
-    const { keycloak,initialized } = useKeycloak()
-    // const access:string = "holasoyeltokentemporal"
-    console.log("KEYCLOAK AUTH ",keycloak?.authenticated)
-    console.log("KEYCLOAK init  ",initialized)
-
-    // useEffect(() => { 
-    //     if( initialized){
-    //         console.log("YA INICIALIZADO ",initialized)
-    //     }
-    // }, [initialized])
-    // if(!initialized){
-    //     return <div>Loading...</div>
-    // }
+    const access = KeyCloakService.getToken()
+    const dispatch= useDispatch()
+    useEffect(() => {
+        dispatch(loadTokenUser(KeyCloakService.getAllInfo()))
+     
+    }, [dispatch])
     return (
         <BrowserRouter>
             <div>
@@ -33,12 +28,12 @@ export const AppRouter = () => {
                         <PublicRoute  
                             path="/login" 
                             component={LoginLayout}
-                            isAuthenticated={keycloak?.authenticated ? keycloak?.authenticated : false}
+                            isAuthenticated={!!access}
                             /> 
                         <PrivateRoute  
                             path="/admin" 
                             component={AdminLayout}
-                            isAuthenticated={keycloak?.authenticated ? keycloak?.authenticated : false}
+                            isAuthenticated={!!access}
     
                             />
                     <Redirect from="/" to="/login" />

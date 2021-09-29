@@ -1,10 +1,52 @@
-import Keycloak from 'keycloak-js';
+import Keycloak, { KeycloakTokenParsed } from "keycloak-js";
+import { IToken } from './interfaces/IToken';
 
-// Setup Keycloak instance as needed
-// Pass initialization options as required or leave blank to load from 'keycloak.json'
-const keycloak = Keycloak({
-  url: 'http://login.api-ux.com/auth/',
-  realm: 'Apiux',
-  clientId: 'librux-react-app'
-});
-export default keycloak;
+const _kc = Keycloak('/keycloak.json')
+
+/**
+ * Initializes Keycloak instance and calls the provided callback function if successfully authenticated.
+ *
+ * @param onAuthenticatedCallback
+ */
+const initKeycloak = (onAuthenticatedCallback:any) => {
+    _kc.init({
+        onLoad: 'login-required'
+    })
+    .then((authenticated:boolean) => {
+      // if (authenticated) {
+        onAuthenticatedCallback();
+      // } else {
+      //   doLogin();
+      // }
+    })
+};
+const doLogin = _kc.login;
+
+const doLogout = _kc.logout;
+
+const getToken = () => _kc.token;
+const getAllInfo = ():KeycloakTokenParsed | IToken | undefined => _kc.tokenParsed;
+const isLoggedIn = () => !!_kc.token;
+
+const updateToken = (successCallback:any) =>
+    _kc.updateToken(5)
+    .then(successCallback)
+    .catch(doLogin);
+
+const getUsername = () => _kc.tokenParsed;
+
+// const hasRole = (roles:any) => roles.some((role:unknown) => _kc.hasRealmRole(role));
+
+const KeyCloakService = {
+    initKeycloak,
+    doLogin,
+    doLogout,
+    getAllInfo,
+    isLoggedIn,
+    getToken,
+    updateToken,
+    getUsername,
+    // hasRole,
+};
+
+export default KeyCloakService;

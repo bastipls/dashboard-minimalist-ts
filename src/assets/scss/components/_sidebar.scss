@@ -166,11 +166,19 @@
 		}
 		.sidebar__profile-job {
 			color: #fff;
-			font-size: 18px;
 			font-weight: 500;
 			white-space: nowrap;
-			font-size: 12px;
+			font-size: 10px;
 		}
+		#sidebar__icon-exit{
+			min-width: 38px;
+			text-align: center;
+			line-height: 30px;
+			color:var(--secondry-color);
+			cursor: pointer;
+			transition: all 0.3s ease ;
+		}
+	
 	}
 }
 // CUANDO EL SIDEBAR ESTA COLAPSADO/CERRADO
