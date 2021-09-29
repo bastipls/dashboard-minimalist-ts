@@ -2,9 +2,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { IconDefinition } from '@fortawesome/fontawesome-common-types';
 interface PropsCardStatistics {
     icon:IconDefinition,
-    color:string,
+    color?:string,
     title:string,
-    subValue:string | number,
+    subValue?:string | number,
     value:string | number
 }
 export const CardStatistics = ({icon,color="#4DA851",title,subValue,value}:PropsCardStatistics) => {
