@@ -1,11 +1,10 @@
 
-import { faChartPie, faDragon, faSmile, faUpload } from '@fortawesome/free-solid-svg-icons';
+import { faChartPie, faToolbox, faUpload } from '@fortawesome/free-solid-svg-icons';
 import { IconDefinition } from "@fortawesome/fontawesome-common-types";
 import { DashboardView } from "../views/admin/Dashboard/DashboardView";
 import React from "react";
-import { TestView } from '../views/admin/Test/TestView';
-import { TestSubMenu } from '../views/SubMenuTest/TestSubMenu';
-import { TestSubMenu2 } from '../views/SubMenuTest/TestSubMenu2';
+import { TestSubMenu } from '../views/admin/SubMenuTest/TestSubMenu';
+import { TestSubMenu2 } from '../views/admin/SubMenuTest/TestSubMenu2';
 import { UploadDocumentView } from '../views/admin/UploadDocument/UploadDocumentView';
 
 export interface RoutesAdmin {
@@ -45,17 +44,6 @@ export const routesAdmin:RoutesAdmin[] = [
     },
     {
         layout:'/admin',
-        path:'/testing',
-        fullpath:'/admin/testing',
-        name:"Testing",
-        icon:faSmile,
-        groups:['admin'],
-        component:TestView,
-        isMenuItem:true,
-        isSubMenu:false
-    },
-    {
-        layout:'/admin',
         path:'/upload-document',
         fullpath:'/admin/testing',
         name:"Cargar documento",
@@ -66,8 +54,8 @@ export const routesAdmin:RoutesAdmin[] = [
         isSubMenu:false
     },
     {
-        name:"Tareas",
-        icon:faDragon,
+        name:"Mantenedores",
+        icon:faToolbox,
         groups:['admin'],
         isMenuItem:true,
         isSubMenu:true,

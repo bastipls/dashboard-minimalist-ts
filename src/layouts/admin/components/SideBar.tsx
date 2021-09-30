@@ -16,10 +16,12 @@ import { RootState } from '../../../state/reducers/index';
 //https://www.youtube.com/watch?v=ES8vJcUqE7s
 export const SideBar = () => {
     const ref = useRef<HTMLDivElement | null> (null)
+    const refNav  = useRef<HTMLDivElement | null> (null)
     const {tokenInfo}:IAuthState = useSelector((state:RootState) => state.auth)
     
     const handleCloseSideBar = ( ) => {
         ref.current?.classList.toggle("sidebar__close")
+        refNav.current?.classList.toggle("sidebar__close")
     }
     const location = useLocation()
 
@@ -59,7 +61,7 @@ export const SideBar = () => {
                             <img src={profileImg} alt="" />
                         </div>
                         <div className="sidebar__name-job">
-                            <div className="sidebar__profile-name">{`${tokenInfo?.user?.firstName} ${tokenInfo?.user?.lastName}dsadasdss`}</div>
+                            <div className="sidebar__profile-name">{`${tokenInfo?.user?.firstName} ${tokenInfo?.user?.lastName}`}</div>
                             <div className="sidebar__profile-job">{tokenInfo?.user?.email}</div>
                         </div>
                         <FontAwesomeIcon onClick={() => KeyCloakService.doLogout()} id="sidebar__icon-exit"  icon={faSignOutAlt}/>
@@ -67,10 +69,13 @@ export const SideBar = () => {
                 </li>
             </ul>
         </div>
-        <section className="sidebar__home-section">
+        <section ref={refNav} className="sidebar__home-section">
             <div className="sidebar__home-content">
                 <FontAwesomeIcon onClick={handleCloseSideBar} className="sidebar__bx-menu" icon={faBars} />
                 <span className="sidebar__text"></span>
+            </div>
+            <div className="sidebar__home-section-logout">
+                <FontAwesomeIcon onClick={() => KeyCloakService.doLogout()} id="sidebar__icon-exit"  icon={faSignOutAlt}/>
             </div>
         </section>
         </>

@@ -2,16 +2,16 @@
 import { ActionTypeUi } from '../action-types';
 import { ActionsUi } from '../actions-interfaces/indexs';
 
-export interface UiState {
+export interface IUiState {
     loading:boolean;
 }
 
-const initialState:UiState = {
+const initialState:IUiState = {
     loading:false,
 }
 
 
-const uiReducer = (state:UiState=initialState,action:ActionsUi) => {
+const uiReducer = (state:IUiState=initialState,action:ActionsUi) => {
    switch (action.type) {
         case ActionTypeUi.START_LOADING:
             return {

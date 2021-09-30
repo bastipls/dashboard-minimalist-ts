@@ -1,0 +1,56 @@
+.upload-documents__container-dropzone{
+    width: 100%;
+    padding: 30px;
+    min-height:30vh;
+    display: flex;
+    
+    
+    .upload-documents__dragdrop-zone{
+        margin: 10px;
+        cursor: pointer;
+        width: 100%;
+        outline: none;
+        // height: 400px;
+        padding: 10px;
+        background-color:white;
+        border: 2px solid var(--main-color) ;
+        border-radius: 5px ;
+        border-style: dashed;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        svg{
+            font-size: 4rem;
+            margin-bottom: 10px;
+        }
+        @media screen and(max-width:600px) {
+            height: 300px;
+        }
+        h2{
+            word-break: break-all;
+        }
+        p{
+            user-select: none;
+        }
+        &:hover{
+            border-color: var(--main-company-color) ;
+        }
+        &:focus{
+            border-color: var(--main-company-color) ;
+        }
+    }
+    .upload-documents__container-inputs-dropzone{
+        width:15%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        // background: red;
+        // height: 150px;
+        button{
+            margin:10px  !important;
+        }
+    }
+}
