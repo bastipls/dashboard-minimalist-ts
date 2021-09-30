@@ -1,11 +1,12 @@
 
-import { faChartPie, faDragon, faSmile } from '@fortawesome/free-solid-svg-icons';
+import { faChartPie, faDragon, faSmile, faUpload } from '@fortawesome/free-solid-svg-icons';
 import { IconDefinition } from "@fortawesome/fontawesome-common-types";
 import { DashboardView } from "../views/admin/Dashboard/DashboardView";
 import React from "react";
 import { TestView } from '../views/admin/Test/TestView';
 import { TestSubMenu } from '../views/SubMenuTest/TestSubMenu';
 import { TestSubMenu2 } from '../views/SubMenuTest/TestSubMenu2';
+import { UploadDocumentView } from '../views/admin/UploadDocument/UploadDocumentView';
 
 export interface RoutesAdmin {
     layout?:     string ;
@@ -50,6 +51,17 @@ export const routesAdmin:RoutesAdmin[] = [
         icon:faSmile,
         groups:['admin'],
         component:TestView,
+        isMenuItem:true,
+        isSubMenu:false
+    },
+    {
+        layout:'/admin',
+        path:'/upload-document',
+        fullpath:'/admin/testing',
+        name:"Cargar documento",
+        icon:faUpload,
+        groups:['admin'],
+        component:UploadDocumentView,
         isMenuItem:true,
         isSubMenu:false
     },
