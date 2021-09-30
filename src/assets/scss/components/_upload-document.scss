@@ -4,9 +4,10 @@
     min-height:30vh;
     display: flex;
     
-    
+    z-index: 109;
     .upload-documents__dragdrop-zone{
         margin: 10px;
+        z-index: 109;
         cursor: pointer;
         width: 100%;
         outline: none;
@@ -21,7 +22,7 @@
         flex-direction: column;
         align-items: center;
         text-align: center;
-        svg{
+        .upload-documents__icons-files{
             font-size: 4rem;
             margin-bottom: 10px;
         }
@@ -41,16 +42,29 @@
             border-color: var(--main-company-color) ;
         }
     }
-    .upload-documents__container-inputs-dropzone{
-        width:15%;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        // background: red;
-        // height: 150px;
-        button{
-            margin:10px  !important;
-        }
+
+}
+.upload-documents__container-file-charged{
+    width: 60%;
+    display: flex;
+    height: 60px;
+    align-items: center;
+    justify-content: flex-end;
+    border-radius: 5px;
+    background-color: cyan;
+    font-size: 15px;
+    z-index: 120;
+    cursor:auto;
+    .upload-documents__file-charged-name{
+        margin-right: auto;
+        margin-left: 20px;
+    }
+    .upload-documents__file-charged-item{
+        padding: 10px;
+        width: 40px;
+        height: 40px;
+        margin: 10px;
+        background: grey;
+        border-radius: 50%;
     }
 }
