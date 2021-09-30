@@ -10,7 +10,7 @@ export const MenuItem = (props:RoutesAdmin) => {
         <li>
         <NavLink  to={props.layout + props.path!} >
             <FontAwesomeIcon icon={props.icon} />
-            <span className="sidebar__link-name">{props.name}</span>
+            <span className="sidebar__link-name " >{props.name}</span>
         </NavLink>
         <ul className="sidebar__sub-menu sidebar__blank">
             <li>

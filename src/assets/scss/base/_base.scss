@@ -7,9 +7,8 @@
 }
 .active{
     color:var(--main-company-color) !important;
-  
-    span{
-       
+
+    span{       
         color: var(--main-company-color) !important;
     }
 }
@@ -17,7 +16,7 @@
     color:var(--secondry-color);
         .sidebar__sub-menu{
             .sidebar__active-submenu-indicator{
-               opacity: 1;
+                opacity: 1;
             }
         }
 
@@ -25,13 +24,3 @@
     
 }
 
-// .active.sidebar__close{
-//     color:var(--secondry-color);
-//     svg{
-//         color:red !important; 
-//     }
-//     span{
-
-//         color: var(--secondry-color) ;
-//     }
-// }

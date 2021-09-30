@@ -59,7 +59,7 @@ export const SideBar = () => {
                             <img src={profileImg} alt="" />
                         </div>
                         <div className="sidebar__name-job">
-                            <div className="sidebar__profile-name">{tokenInfo?.user?.firstName} {tokenInfo?.user?.lastName}</div>
+                            <div className="sidebar__profile-name">{`${tokenInfo?.user?.firstName} ${tokenInfo?.user?.lastName}dsadasdss`}</div>
                             <div className="sidebar__profile-job">{tokenInfo?.user?.email}</div>
                         </div>
                         <FontAwesomeIcon onClick={() => KeyCloakService.doLogout()} id="sidebar__icon-exit"  icon={faSignOutAlt}/>
