@@ -6,11 +6,20 @@ import { useSelector } from 'react-redux';
 import { RootState } from '../../../../state/reducers/index';
 import { IUiState } from '../../../../state/reducers/uiReducer';
 import { PreviewDocument } from '../../../../components/commons/PreviewDocument';
+import { useState } from 'react';
+import { FileCharged } from './FileCharged';
+import { ModalPreviewDocument } from '../../../../components/modals/ModalPreviewDocument';
+import { Card } from '../../../../components/cards';
+
 
 export const UploadDocument = () => {
     const { loading } =  useSelector((state:RootState):IUiState => state.ui)
-    const {getRootProps, getInputProps,isDragActive,isDragReject,acceptedFiles,myFiles} = useDragAndDrop()
-  
+    const {getRootProps, getInputProps,isDragActive,isDragReject,acceptedFiles,myFiles,setMyFiles} = useDragAndDrop()
+    const [modal, setModal] = useState<boolean>(false)
+    const resetFile = () => {
+        acceptedFiles.splice(acceptedFiles.indexOf(acceptedFiles[0]), 1)
+        setMyFiles([])
+      }
     return (
         <>
         
@@ -27,27 +36,31 @@ export const UploadDocument = () => {
                             { loading !== true &&  isDragReject && <p>Tipo de archivo no permitido</p>}
 
             </div>
-                                {
-                                    myFiles.map((file,index:number) => (
-                                      
-                                            <div key={index} className="upload-documents__container-file-charged">
-                                                <div className="upload-documents__file-charged-name">
-                                                    <p>{file.name}</p>
-                                                </div>
-                                                <div  className="upload-documents__file-charged-item">
-                                                    <FontAwesomeIcon size="1x"  icon={faEye} />
-                                                </div>
-                                                <div  className="upload-documents__file-charged-item">
-                                                    <FontAwesomeIcon size="1x" icon={faTrash} />
-                                                </div>
-                                                
-                                            
-                                            </div>
-                                      
-                                    
-                                    ))
-                                }
-                           
+           {!!myFiles.length && 
+            <div className="upload-documents__container-title">
+                    <h4>Documento cargado</h4>
+                    <span>
+            
+                        <hr></hr>
+                    </span>
+            </div>
+            }
+                    {
+                        myFiles.map((file,index:number) => (
+                                <FileCharged setModal={setModal}  key={index} file={file} resetFile={resetFile} />                 
+                        ))
+                    }
+           {modal && 
+            <ModalPreviewDocument 
+                open={modal}
+                setModal={setModal}
+                >
+                    <Card>
+                    <h1>HOLA</h1>
+                    </Card>
+                </ModalPreviewDocument>
+                   } 
+
 
           
         </div>

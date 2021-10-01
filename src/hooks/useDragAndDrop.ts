@@ -7,7 +7,7 @@ export const useDragAndDrop = () => {
     const [myFiles, setMyFiles] = useState<File[]>([])
 
     const onDrop = useCallback(acceptedFiles => {
-    console.log(myFiles)
+
     if (myFiles.length === 0) {
         setMyFiles([...myFiles, ...acceptedFiles]);
     } else if ( acceptedFiles[0]?.name.split(".")[1] !== "pdf" ){

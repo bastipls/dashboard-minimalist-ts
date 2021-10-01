@@ -13,7 +13,7 @@
 	height: 100%;
 	width: 260px;
 	background: #11101d;
-	z-index: 100;
+	z-index: 200;
 	transition: all 0.5s ease;
 	.sidebar__logo-details {
 		height: 60px;
@@ -299,7 +299,7 @@
 	align-items: center;
 	justify-content: space-between;
 	background: #181824;
-    z-index: 100;
+    z-index: 200;
 	height: 50px;
 	left: 260px;
 	width: calc(100% - 260px);
