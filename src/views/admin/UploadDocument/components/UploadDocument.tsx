@@ -1,15 +1,14 @@
-import { faEye, faFilePdf, faFileUpload, faTrash } from '@fortawesome/free-solid-svg-icons'
+import {  faFileUpload } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { CircularProgress, Tooltip } from '@material-ui/core'
+import { CircularProgress } from '@material-ui/core'
 import { useDragAndDrop } from '../../../../hooks/useDragAndDrop'
 import { useSelector } from 'react-redux';
 import { RootState } from '../../../../state/reducers/index';
 import { IUiState } from '../../../../state/reducers/uiReducer';
-import { PreviewDocument } from '../../../../components/commons/PreviewDocument';
 import { useState } from 'react';
 import { FileCharged } from './FileCharged';
-import { ModalPreviewDocument } from '../../../../components/modals/ModalPreviewDocument';
-import { Card } from '../../../../components/cards';
+import { ModalPreviewDocument } from '../../../../components/modals/ModalPreviewDocument/ModalPreviewDocument';
+
 
 
 export const UploadDocument = () => {
@@ -45,26 +44,21 @@ export const UploadDocument = () => {
                     </span>
             </div>
             }
-                    {
-                        myFiles.map((file,index:number) => (
-                                <FileCharged setModal={setModal}  key={index} file={file} resetFile={resetFile} />                 
-                        ))
-                    }
-           {modal && 
+            {
+                myFiles.map((file,index:number) => (
+                        <FileCharged setModal={setModal}  key={index} file={file} resetFile={resetFile} />                 
+                ))
+            }
+            {modal && 
             <ModalPreviewDocument 
                 open={modal}
                 setModal={setModal}
-                >
-                    <Card>
-                    <h1>HOLA</h1>
-                    </Card>
-                </ModalPreviewDocument>
-                   } 
+                file={myFiles[0]}
+            />
+            } 
 
-
-          
         </div>
-        { !!myFiles.length &&  <PreviewDocument file={myFiles[0]}  />}
+        {/* { !!myFiles.length &&  <PreviewDocument file={myFiles[0]}  />} */}
         </>
     )
 }

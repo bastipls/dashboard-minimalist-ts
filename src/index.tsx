@@ -7,9 +7,9 @@ import KeyCloakService from './keycloak';
 
 const render = () => {ReactDOM.render(
   
-  <React.StrictMode>
-        <App />
-  </React.StrictMode>,
+  // <React.StrictMode>
+        <App />,
+  // </React.StrictMode>,
   document.getElementById('root')
 )}
 KeyCloakService.initKeycloak(render)

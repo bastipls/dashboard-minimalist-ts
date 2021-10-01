@@ -2,4 +2,75 @@
     display: flex;
     justify-content: center;
     align-items: center;
+ 
+    .components-modal__modal-preview-document-container {
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-start;
+        flex-direction: column;
+        width: 90%;
+        border-radius: 5px;
+        padding: 10px;
+        background: var(--secondary-color);
+        position: relative;
+        min-height: 85vh;
+        max-height: 100vh;
+
+        .components-modal__modal-preview-document-title{
+            width: 100%;
+            height: 40px;
+        }
+        .components-modal__modal-preview-document-close{    
+            position: absolute;
+            right:10px;
+            top: 5px;
+            cursor: pointer;
+        }
+        .components-modal__modal-preview-content{
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            overflow: auto;
+            .components-modal__modal-preview-document-item{
+                width: 40%;
+                height: 10px;
+                min-height: 70vh;
+                // background-color: red;
+                .components-modal__modal-preview-document-info{
+                    height: 100%;
+                    display: flex;
+                    justify-content: center;
+                    align-items:flex-start;
+                    width: 100%;
+                    .components-modal__modal-preview-document-list{
+                        width: 100%;
+                        .components-modal__modal-preview-list-item{
+                            margin-top: 50px;
+                        }
+                    }
+                }
+                @media screen and(max-width:800px){
+                    width:100%;
+                    flex-direction: column;
+                }
+                &:last-child{
+                    width: 60%;
+                    background: green;
+                    @media screen and(max-width:800px){
+                        width:100%;
+                    }
+                }
+            }
+        }
+        .components-modal__modal-preview-document-buttons{
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            width: 100%;
+            margin-top: 20px;
+
+        }
+    }
 }

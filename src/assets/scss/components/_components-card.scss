@@ -23,7 +23,7 @@
         text-align: end;
         flex-wrap: wrap;
         font-size: 14px;
-        background:var(--secondry-color);
+        background:var(--secondary-color);
         border-radius: 4px;
         .components-card__title-card-stats{
             align-self: flex-end;
@@ -73,7 +73,7 @@
             box-shadow: 0px 0px 13px -5px #000000;
         
             svg{
-                color:var(--secondry-color)
+                color:var(--secondary-color)
             }
         }
         hr{
@@ -94,7 +94,7 @@
 
 .components-card__card-container{
     padding: 10px;
-    background:var(--secondry-color);
+    background:var(--secondary-color);
     box-shadow:rgba(0, 0, 0, 0.12) 0px 1px 4px 1px;
     -webkit-box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 4px 1px;
     -moz-box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 4px 1px;
