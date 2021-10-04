@@ -2,10 +2,95 @@
     width: 100%;
     min-height: 80vh;
     display: flex;
+    flex-direction: row;
     flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
+    align-items: flex-start;
     @media screen and(max-width:610px){
         justify-content: center;
+    }
+    %padding-items{
+        padding: 30px;
+    }
+    .dashboard__container-last-documents-and-cards{
+        display: flex;
+        flex-direction: column;
+        @extend %padding-items;
+        width: 64%;
+        @media screen and(max-width:950px) {
+            width: 100%;
+        }
+        .dashboard__container-cards{
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            width: 100%;
+            @media screen and(max-width:1120px){
+                flex-wrap: wrap;
+            }
+        }
+        .dashboard__container-bar-chart{
+            background: var(--secondary-color);
+            padding: 10px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            
+        }
+    }
+    .dashboard__container-side-right{
+        @extend %padding-items;
+        width: 34%;
+        @media screen and(max-width:950px) {
+            width: 100%;
+        }
+    }
+   
+}
+.dashboard__list-container{
+    background:var(--secondary-color);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    width: 100%;
+    min-height: 20px;
+    margin: 10px;
+    padding: 0px 0px 8px 0px;
+    // Seccion title
+    .dashboard__list-section-title{
+        padding: 10px;
+        hr{
+            width: 60% !important;
+            @media screen and(max-width:800px) {
+                width: 100% !important;
+                
+            }
+        }
+    }
+    // Fin seccion titulo
+
+    .dashboard__list-section-items{
+        overflow-x: auto;
+        .dashboard__list-item{
+            min-width: 300px;
+            padding:5px 5px 8px 14px;
+            .dashboard__list-name{
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
+                min-height:40px ;
+                word-break: break-word;    
+                color:#3699ff;
+                svg{
+                    height: 20px;
+                    margin-right: 14px;
+                }
+            }
+            .dashboard__list-date{
+                p{
+                    margin-left: 25px;
+                    font-size: 12px;
+                    opacity: .7;
+                    
+                }
+            }
+        }
     }
 }
