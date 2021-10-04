@@ -7,7 +7,7 @@ import { BarChartDocuments } from "./components/BarChartDocuments";
 export const DashboardView = () => {
     const dummyList1 = [1,2,3,4,5]
     const dummyList2 = [1,2,3,4]
-    const dummyList3 = [1,2,3]
+    const dummyList3 = [1,2,3,4]
     return (
         <div className="dashboard__container">
             <div className="dashboard__container-last-documents-and-cards">
@@ -32,15 +32,18 @@ export const DashboardView = () => {
                     />
              
                 </div>
-                <div className="dashboard__container-bar-chart">
-                    <div className="dashboard__title-bar-chart">
-                        <h4>Tipos de documentos</h4>
-                        <hr  className="base__hr-right-ease" style={{marginBottom:"20px"}} />
+                <div className="dashboard__container-section-bar-chart">
+                    <div className="dashboard__container-bar-chart">
+
+                        <div className="dashboard__title-bar-chart">
+                            <h4>Tipos de documentos</h4>
+                            <hr  className="base__hr-right-ease" style={{marginBottom:"20px"}} />
+                        </div>
+                        <BarChartDocuments />
                     </div>
-                    <BarChartDocuments />
                 </div>
             </div>
-            
+
             <div className="dashboard__container-side-right">
                 <CardWithList title="Actividades recientes" icon={faListAlt} dummy={dummyList1} />
                 <CardWithList title="Documentos más vistos" icon={faListAlt} dummy={dummyList3} />

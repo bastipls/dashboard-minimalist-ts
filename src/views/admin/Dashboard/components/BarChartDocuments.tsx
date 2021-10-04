@@ -6,9 +6,8 @@ export const BarChartDocuments = () => {
         {name: 'Curriculum', total: 10,color:"#4DA851"},
       
       ];
-    const colors = ["#9878B3","#00BCD4","#4DA851"]
     return (
-    <ResponsiveContainer width="100%" height={250}>
+    <ResponsiveContainer width="100%" height={320}>
       <BarChart data={data}
         margin={{ top: 0, right: -10, left: -10, bottom: 0 }}>
         <XAxis dataKey="name" />

@@ -10,10 +10,16 @@
     }
     %padding-items{
         padding: 30px;
+        @media screen and(max-width:600px) {
+            padding: 0px ; 
+            
+        }
     }
     .dashboard__container-last-documents-and-cards{
         display: flex;
         flex-direction: column;
+        justify-content: center;
+        align-items: center;
         @extend %padding-items;
         width: 64%;
         @media screen and(max-width:950px) {
@@ -28,11 +34,21 @@
                 flex-wrap: wrap;
             }
         }
-        .dashboard__container-bar-chart{
-            background: var(--secondary-color);
-            padding: 10px;
-            border-radius: var(--border-radius);
-            box-shadow: var(--box-shadow);
+        .dashboard__container-section-bar-chart{
+
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            .dashboard__container-bar-chart{
+                border-radius: var(--border-radius);
+                padding: 10px;
+                background: var(--secondary-color);
+                box-shadow: var(--box-shadow);
+                width: 100%
+            }
+
             
         }
     }
@@ -51,7 +67,7 @@
     box-shadow: var(--box-shadow);
     width: 100%;
     min-height: 20px;
-    margin: 10px;
+    margin: 10px 0px 0px 0px;
     padding: 0px 0px 8px 0px;
     // Seccion title
     .dashboard__list-section-title{
