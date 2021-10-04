@@ -1,0 +1,10 @@
+.search-documents__table-container{
+    border-radius: var(--border-radius);
+    .search-documents__table-head{
+        .search-documents__table-head-cell{
+            font-weight: 600 !important;
+            color:#fff !important;
+        }
+        background: #369BFF;
+    }
+}
