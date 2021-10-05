@@ -24,9 +24,9 @@ export const SearchDocumentsView = () => {
             
   
         </Card>
-        <Card className="search-documents__container-table">
+        <Card className="c">
             <TableContainer className="search-documents__table-container" >
-                <Table>
+                <Table className="search-documents__table">
                     <TableHead className="search-documents__table-head">
                         <TableRow>
                             <TableCell className="search-documents__table-head-cell">Dessert (100g serving)</TableCell>
@@ -39,7 +39,7 @@ export const SearchDocumentsView = () => {
                     <TableBody>
                     {rows.map((row) => (
                             <TableRow
-                                // key={row.name}
+                                key={row.name}
                                 // sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                                 >
                                     <TableCell component="th" scope="row">

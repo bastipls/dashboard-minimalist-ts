@@ -1,5 +1,5 @@
 
-import { IToken } from '../../interfaces/IToken';
+import { IToken } from '../../interfaces/auth/IToken';
 import { ActionTypeAuth } from '../action-types';
 import { ActionsAuth } from '../actions-interfaces/IAuth';
 

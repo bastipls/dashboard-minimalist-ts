@@ -1,6 +1,6 @@
 
 import { ActionTypeAuth } from "../action-types";
-import { IToken } from '../../interfaces/IToken';
+import { IToken } from '../../interfaces/auth/IToken';
 import jwt_decode from 'jwt-decode';
 import Swal from "sweetalert2";
 import KeyCloakService from '../../keycloak';

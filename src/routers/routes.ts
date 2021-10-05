@@ -3,10 +3,9 @@ import { faChartPie, faSearch, faToolbox, faUpload } from '@fortawesome/free-sol
 import { IconDefinition } from "@fortawesome/fontawesome-common-types";
 import { DashboardView } from "../views/admin/Dashboard/DashboardView";
 import React from "react";
-import { TestSubMenu } from '../views/admin/SubMenuTest/TestSubMenu';
-import { TestSubMenu2 } from '../views/admin/SubMenuTest/TestSubMenu2';
 import { UploadDocumentView } from '../views/admin/UploadDocument/UploadDocumentView';
 import { SearchDocumentsView } from '../views/admin/SearchDocuments/SearchDocumentsView';
+import { MaintainersView } from '../views/admin/Maintainers/MaintainersView';
 
 export interface RoutesAdmin {
     layout?:     string ;
@@ -66,30 +65,42 @@ export const routesAdmin:RoutesAdmin[] = [
         isSubMenu:false
     },
     {
+        layout:'/admin',
+        path:'/maintainers',
+        fullpath:'/admin/maintainers',
         name:"Mantenedores",
         icon:faToolbox,
         groups:['admin'],
+        component:MaintainersView,
         isMenuItem:true,
-        isSubMenu:true,
-        subMenus:[
-            {
-                layout:'/admin',
-                path:'/sub-menu',
-                fullpath:'/admin/sub-menu',
-                name:'Test',
-                component:TestSubMenu,
-                groups:['admin'],
-            },
-            {
-                layout:'/admin',
-                path:'/sub-menu2',
-                fullpath:'/admin/sub-menu2',
-                name:'Submenu2',
-                component:TestSubMenu2,
-                groups:['admin'],
-            }
-        ]
-    }
+        isSubMenu:false
+    },
+
+    // {
+    //     name:"Test",
+    //     icon:faToolbox,
+    //     groups:['admin'],
+    //     isMenuItem:true,
+    //     isSubMenu:true,
+    //     subMenus:[
+    //         {
+    //             layout:'/admin',
+    //             path:'/sub-menu',
+    //             fullpath:'/admin/sub-menu',
+    //             name:'Test',
+    //             component:TestSubMenu,
+    //             groups:['admin'],
+    //         },
+    //         {
+    //             layout:'/admin',
+    //             path:'/sub-menu2',
+    //             fullpath:'/admin/sub-menu2',
+    //             name:'Submenu2',
+    //             component:TestSubMenu2,
+    //             groups:['admin'],
+    //         }
+    //     ]
+    // }
 
 ]
 
