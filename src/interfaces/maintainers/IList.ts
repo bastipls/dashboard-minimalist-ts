@@ -5,7 +5,7 @@ export interface IList {
     namespace: string;
     user:      string;
     activity:  string;
-    date:      string;
+    date?:      string;
     action:    string;
     type:      string;
 }

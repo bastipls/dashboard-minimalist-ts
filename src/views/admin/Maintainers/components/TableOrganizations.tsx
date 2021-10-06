@@ -1,23 +1,24 @@
-import MaterialTable, { Column } from 'material-table'
-import React from 'react'
+
 import { localizationMaterialTable } from '../../../../constants/materialTableConfig'
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../../../state/reducers/index';
 import { IMaintainersState } from '../../../../state/reducers/maintainersReducer';
-import { startAddList, startDeleteList, startUpdateList, stratLoadingLists } from '../../../../state/actions-creators/maintainers';
-import { IList } from '../../../../interfaces/maintainers/IList';
+import {  startAddOrganization, startUpdateOrganization, startDeleteOrganization, stratLoadingOrganizations } from '../../../../state/actions-creators/maintainers';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrash } from '@fortawesome/free-solid-svg-icons';
 
-interface PropsTableLists {
+import MaterialTable, { Column } from 'material-table';
+import { IOrganization } from '../../../../interfaces/maintainers/IOrganization';
+
+interface PropsTableOrganizations {
     loading:boolean
 }
 
-export const TableLists = ({loading}:PropsTableLists) => {
+export const TableOrganizations = ({loading}:PropsTableOrganizations) => {
     const dispatch = useDispatch();
-    const {lists}:IMaintainersState = useSelector((state:RootState) => state.maintainers)
-    const columns:Column<IList>[]  = [
+    const {organizations}:IMaintainersState = useSelector((state:RootState) => state.maintainers)
+    const columns:Column<IOrganization>[]  = [
         {
             title:"ID",
             field:"id",
@@ -27,55 +28,33 @@ export const TableLists = ({loading}:PropsTableLists) => {
         },
         {
             title:"Nombre",
-            field:"namespace",
-    
+            field:"name",
             type:"string"
         },
         {
-            title:"Tipo",
-            field:"type",
-  
+            title:"Dirección",
+            field:"address",
             type:"string"
         },
         {
-            title:"Usuario",
-            field:"user",
+            title:"ID Empresa",
+            field:"company_id",
+            type:"numeric"
+        },
 
-            type:"string"
-        },
-        {
-            title:"Fecha",
-            field:"date",
-            type:"date",
-            editable:"never"
-     
-        },
-        {
-            title:"Actividad",
-            field:"activity",
-            type:"string",
-            filtering:false,   
-        },
-        {
-            title:"Acción",
-            field:"action",
-            type:"string",
-            filtering:false,   
-        }
     ]
     useEffect(() => {
-        dispatch(stratLoadingLists())
-      
+        dispatch(stratLoadingOrganizations())
     }, [dispatch])
-    const handleAdd = (newData:IList)=>{
+    const handleAdd = (newData:IOrganization)=>{
         return new Promise<void>((resolve,reject) => {
-            dispatch(startAddList(newData))
+            dispatch(startAddOrganization(newData))
             resolve();
         })
     }
-    const handleUpdate = (newData:IList) => {
+    const handleUpdate = (newData:IOrganization) => {
         return new Promise<void>((resolve,reject) => {
-            dispatch(startUpdateList(newData))
+            dispatch(startUpdateOrganization(newData))
             resolve();
 
         })
@@ -85,7 +64,7 @@ export const TableLists = ({loading}:PropsTableLists) => {
             title=""
             columns={columns}
             style={{minWidth:"100%"}}
-            data={lists}
+            data={organizations}
             localization={localizationMaterialTable}
             editable={{
                 onRowAdd:handleAdd,
@@ -97,15 +76,14 @@ export const TableLists = ({loading}:PropsTableLists) => {
                     icon: 'refresh',
                     tooltip: `Refrescar`,
                     isFreeAction: true,
-                    onClick:()=> dispatch(stratLoadingLists())
+                    onClick:()=> dispatch(stratLoadingOrganizations())
                 },
                 rowData =>({
                     tooltip:'Eliminar',
                     icon:() =>(  <FontAwesomeIcon color="#C60B1E" icon={faTrash} />),
-                    onClick:(e) => dispatch(startDeleteList(rowData)) 
+                    onClick:(e) => dispatch(startDeleteOrganization(rowData)) 
                     
-                }),
-      
+                })
             ]}
             isLoading={loading}
             options={{

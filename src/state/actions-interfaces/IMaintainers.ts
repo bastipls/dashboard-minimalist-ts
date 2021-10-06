@@ -1,6 +1,7 @@
 import { IList } from '../../interfaces/maintainers/IList';
 import { ActionTypesMaintainers } from '../action-types/maintainersTypes';
 import { ICompany } from '../../interfaces/maintainers/IComapny';
+import { IOrganization } from '../../interfaces/maintainers/IOrganization';
 interface ILoadLists {
     type:ActionTypesMaintainers.LOAD_LISTS,
     payload:IList[]
@@ -34,6 +35,27 @@ interface IDeleteCompany {
     type:ActionTypesMaintainers.DELETE_COMPANY,
     payload:number
 }
+
+
+
+interface ILoadOrganizations {
+    type:ActionTypesMaintainers.LOAD_ORGANIZATIONS,
+    payload:IOrganization[]
+}
+interface IAddOrganization {
+    type:ActionTypesMaintainers.ADD_ORGANIZATION,
+    payload:IOrganization
+}
+interface IUpdateOrganization {
+    type:ActionTypesMaintainers.UPDATE_ORGANIZATION,
+    payload:IOrganization,
+}
+interface IDeleteOrganization {
+    type:ActionTypesMaintainers.DELETE_ORGANIZATION,
+    payload:number
+}
+
+
 export type ActionsMaintaners =
     | ILoadLists
     | IAddList
@@ -43,4 +65,9 @@ export type ActionsMaintaners =
     | ILoadComapnies
     | IAddCompany
     | IUpdateComany
-    | IDeleteCompany;
+    | IDeleteCompany
+
+    | ILoadOrganizations
+    | IAddOrganization
+    | IUpdateOrganization
+    | IDeleteOrganization;

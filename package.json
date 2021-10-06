@@ -15,6 +15,8 @@
     "@types/node": "^12.0.0",
     "@types/react": "^17.0.0",
     "@types/react-dom": "^17.0.0",
+    "axios": "^0.22.0",
+    "env-cmd": "^10.1.0",
     "jwt-decode": "^3.1.2",
     "keycloak-js": "^15.0.2",
     "material-table": "^1.69.3",
@@ -34,8 +36,8 @@
     "web-vitals": "^1.0.1"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
+    "start": "env-cmd -f .env.development react-scripts start",
+    "build": "env-cmd -f .env.production react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },

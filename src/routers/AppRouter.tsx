@@ -9,7 +9,7 @@ import { Redirect } from 'react-router';
 import KeyCloakService from '../keycloak';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { loadTokenUser } from '../state/actions/auth';
+import { loadTokenUser } from '../state/actions-creators/auth';
 
 
 export const AppRouter = () => {

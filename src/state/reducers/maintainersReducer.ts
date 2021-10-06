@@ -3,14 +3,17 @@ import { ICompany } from '../../interfaces/maintainers/IComapny';
 
 import { ActionsMaintaners } from '../actions-interfaces/IMaintainers';
 import { ActionTypesMaintainers } from '../action-types';
+import { IOrganization } from '../../interfaces/maintainers/IOrganization';
 
 export interface IMaintainersState{
-    lists:IList[] | []
-    companies:ICompany[] | []
+    lists:IList[] 
+    companies:ICompany[] 
+    organizations:IOrganization[]
 }
 const initialState:IMaintainersState ={
     lists:[],
     companies:[],
+    organizations:[],
 }
 const maintanersReducer = (state:IMaintainersState=initialState,action:ActionsMaintaners) =>{
     switch (action.type) {
@@ -70,6 +73,33 @@ const maintanersReducer = (state:IMaintainersState=initialState,action:ActionsMa
                 companies:state.companies.filter(company => ( company.id !== action.payload ))
             }
         // Fin seccion comapnies
+        // Seccion organization
+        case ActionTypesMaintainers.LOAD_ORGANIZATIONS:
+            return {
+                ...state,
+                organizations:[...action.payload]
+            }
+        case ActionTypesMaintainers.ADD_ORGANIZATION:
+            return {
+                ...state,
+                organizations:[...state.organizations,action.payload]
+            }
+        case ActionTypesMaintainers.UPDATE_ORGANIZATION:
+            return {
+                ...state,
+                organizations:state.organizations.map(organization => 
+                    organization.id === action.payload.id ?
+                    action.payload
+                    :
+                    organization
+                    )
+            }
+        case ActionTypesMaintainers.DELETE_ORGANIZATION:
+            return {
+                ...state,
+                organizations:state.organizations.filter(organization => ( organization.id !== action.payload ))
+            }
+        // Fin seccion organization
 
         default:
             return state;
